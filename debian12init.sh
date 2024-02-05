@@ -28,6 +28,10 @@ pipx ensurepath || true
 # 安装go
 source <(curl -L https://go-install.netlify.app/install.sh)
 
+# 安装Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
 # 验证安装
 docker --version
 
