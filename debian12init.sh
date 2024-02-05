@@ -47,11 +47,5 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 
-# 安装ksubdomain最新版本
-https://gh-proxy.com/https://github.com/knownsec/ksubdomain/releases/download/v0.7/ksubdomain_linux.zip && unzip ksubdomain_linux.zip && chmod +x ./ksubdomain
-
-# 安装katana最新版本
-https://gh-proxy.com/https://github.com/projectdiscovery/katana/releases/download/v1.0.5/katana_1.0.5_linux_amd64.zip && unzip katana_linux_amd64.zip && chmod +x ./katana && ./katana
-
 # 清理apt包
 apt autoremove -y
