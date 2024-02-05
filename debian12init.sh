@@ -36,7 +36,7 @@ sh get-docker.sh
 docker --version
 
 # 安装Node.js
-curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 apt-get install -y nodejs
 
 # 设置npm和yarn使用国内镜像
@@ -60,3 +60,6 @@ unzip ksubdomain_linux.zip && chmod +x ./ksubdomain
 KATANA_LATEST=$(curl -s "https://cdn.jsdelivr.net/gh/projectdiscovery/katana@latest" | grep '/katana_.*_linux_amd64.zip' | sed -E 's/.*href="([^"]+)".*/\1/' | head -n 1)
 wget "https://github.com${KATANA_LATEST}" -O katana_linux_amd64.zip
 unzip katana_linux_amd64.zip && chmod +x ./katana && ./katana
+
+# 清理apt包
+apt autoremove -y
