@@ -26,10 +26,7 @@ docker-compose --version
 pipx ensurepath || true
 
 # 安装go
-wget -O go_install.sh https://go-install.netlify.app/install.sh && chmod +x go_install.sh && ./go_install.sh
-# 安装Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+source <(curl -L https://go-install.netlify.app/install.sh)
 
 # 验证安装
 docker --version
