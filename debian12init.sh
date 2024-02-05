@@ -15,9 +15,12 @@ EOF
 
 # 更新系统包列表并安装基础及开发工具
 apt-get update -y
-apt-get install -y wget curl vim git unzip screen tmux build-essential libssl-dev zlib1g-dev \
+apt-get install -y wget curl docker-compose vim git unzip screen tmux build-essential libssl-dev zlib1g-dev \
 libbz2-dev libpcap-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 libgdbm-dev libnss3-dev libffi-dev xz-utils tk-dev liblzma-dev pipx
+
+# 验证安装
+docker-compose --version
 
 # 确保pipx的路径被添加到环境变量中，即使pipx ensurepath失败也继续执行
 pipx ensurepath || true
@@ -28,16 +31,8 @@ wget -O go_install.sh https://go-install.netlify.app/install.sh && chmod +x go_i
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
-# 获取最新稳定版本的Docker Compose
-COMPOSE_VERSION=$(curl -s "https://cdn.jsdelivr.net/gh/docker/compose@gh-pages/compose/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-
-# 下载并安装Docker Compose
-curl -L "https://cdn.jsdelivr.net/gh/docker/compose/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-
 # 验证安装
 docker --version
-docker-compose --version
 
 # 安装Node.js
 curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
