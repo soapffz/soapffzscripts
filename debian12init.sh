@@ -15,7 +15,7 @@ EOF
 
 # 更新系统包列表并安装基础及开发工具
 apt-get update -y
-apt-get install -y wget curl docker-compose vim git unzip screen tmux build-essential libssl-dev zlib1g-dev \
+apt-get install -y wget curl docker-compose vim git npm nodejs unzip screen tmux build-essential libssl-dev zlib1g-dev \
 libbz2-dev libpcap-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 libgdbm-dev libnss3-dev libffi-dev xz-utils tk-dev liblzma-dev pipx
 
@@ -34,10 +34,6 @@ sh get-docker.sh
 
 # 验证安装
 docker --version
-
-# 安装Node.js
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
 
 # 设置npm和yarn使用国内镜像
 npm cache clean --force
