@@ -19,8 +19,8 @@ apt-get install -y wget curl vim git unzip screen tmux build-essential libssl-de
 libbz2-dev libpcap-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 libgdbm-dev libnss3-dev libffi-dev xz-utils tk-dev liblzma-dev pipx
 
-# 确保pipx的路径被添加到环境变量中，即使pipx ensurepath失败也继续执行
-pipx ensurepath || true
+# 将pipx添加到PATH环境变量中
+export PATH=$PATH:/root/.local/bin
 
 # 安装Go语言环境
 source <(curl -L https://go-install.netlify.app/install.sh)
