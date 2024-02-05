@@ -3,9 +3,15 @@
 # 当脚本遇到错误时立即退出
 set -e
 
-# 将APT源修改为USTC源
-sed -i 's@deb.debian.org@mirrors.ustc.edu.cn@g' /etc/apt/sources.list
-sed -i 's@security.debian.org@mirrors.ustc.edu.cn@g' /etc/apt/sources.list
+# 备份原始的sources.list文件
+cp /etc/apt/sources.list /etc/apt/sources.list.backup
+
+# 使用新的源地址直接写入sources.list
+cat > /etc/apt/sources.list << EOF
+deb http://mirrors.ustc.edu.cn/debian bookworm main contrib
+deb http://mirrors.ustc.edu.cn/debian bookworm-updates main contrib
+deb http://mirrors.ustc.edu.cn/debian-security bookworm-security main contrib
+EOF
 
 # 更新系统包列表并安装基础及开发工具
 apt-get update -y
