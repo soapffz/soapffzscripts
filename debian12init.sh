@@ -35,11 +35,8 @@ sh get-docker.sh
 # 验证安装
 docker --version
 
-# 设置npm和yarn使用国内镜像
-npm cache clean --force
-npm config set registry https://registry.npmmirror.com
-npm install -g yarn
-yarn config set registry https://registry.npmmirror.com/
+# 安装npm相关工具
+npm cache clean --force && npm config set registry https://registry.npmmirror.com && npm install -g cnpm && cnpm install n8n pm2 mongodb moment-timezone qiniu -g
 
 # go安装bugbounty工具
 go install github.com/lc/gau/v2/cmd/gau@latest
