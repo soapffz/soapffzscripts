@@ -43,9 +43,8 @@ yarn config set registry https://registry.npmmirror.com/
 
 # go安装bugbounty工具
 go install github.com/lc/gau/v2/cmd/gau@latest
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+go install -v github.com/projectdiscovery/pdtm/cmd/pdtm@latest
+pdtm -install-all
 
 # 清理apt包
 apt autoremove -y
